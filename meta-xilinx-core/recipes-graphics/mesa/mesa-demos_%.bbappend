@@ -2,3 +2,6 @@
 DEPENDS:append:mali400 = "${@bb.utils.contains('PACKAGECONFIG', 'egl', ' libmali-xlnx', '', d)}"
 
 PACKAGE_ARCH:mali400 = "${@bb.utils.contains('PACKAGECONFIG', 'egl', '${SOC_VARIANT_ARCH}', '${TUNE_PKGARCH}', d)}"
+
+FILESEXTRAPATHS:prepend := "${THISDIR}/mesa-demos:"
+SRC_URI:append:zynqmp = "file://0001-Revert-eglinfo-Add-EXT_platform_-awareness.patch"
