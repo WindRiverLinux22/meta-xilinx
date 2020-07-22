@@ -1,5 +1,6 @@
 PACKAGECONFIG:mali400 = "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11 xcb', '', d)} \
-                         egl glesv2 trace"
+                         ${@bb.utils.contains('DISTRO_FEATURES', 'x11 opengl', 'egl glesv2', '', d)} \
+                         trace"
 
 # OpenGL comes from libmali
 DEPENDS:append:mali400 = " libmali-xlnx"
