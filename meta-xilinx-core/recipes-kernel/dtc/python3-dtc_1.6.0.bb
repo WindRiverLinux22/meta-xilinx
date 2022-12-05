@@ -17,7 +17,7 @@ S = "${WORKDIR}/git/pylibfdt"
 
 DEPENDS += "libyaml dtc"
 
-inherit distutils3
+inherit setuptools3
 
 do_configure:prepend() {
     (cd ${S}/../ ; make version_gen.h )
